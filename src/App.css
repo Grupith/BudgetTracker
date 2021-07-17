@@ -68,9 +68,9 @@
   font-family: 'Catamaran', sans-serif;
 }
 
-.addExpense {
+.buttonUI {
   text-align: center;
-  margin: auto;
+  margin: 2rem auto;
   font-size: 1.7rem;
   font-weight: 200;
   background-color: transparent;
@@ -81,6 +81,10 @@
   padding: 0px 10px;
   width: fit-content;
   cursor: pointer;
+}
+
+.buttonUI:hover {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 
