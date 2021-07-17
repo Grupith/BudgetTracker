@@ -1,11 +1,14 @@
 import React from 'react';
 
-const AddBudget = () => {
+const AddBudget = ({ setBudgetAmount, setSubmit }) => {
     return (
         <div className='formWrapper'>
-            <form>
-                <label for='addbudget'>Set your budget amount</label>
-                <input type='number' name='addbudget' />
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                setSubmit(true);
+            }}>
+                <label for='addbudget'>Set your budget for the week</label>
+                <input type='number' name='addbudget' onChange={(e) => setBudgetAmount(e.target.value)} />
             </form>
         </div>
     )

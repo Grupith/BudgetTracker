@@ -44,7 +44,7 @@
   justify-content: center;
   text-align: center;
   flex-direction: column;
-  width: 20rem;
+  width: 23rem;
   margin: 2rem auto;
 }
 
@@ -58,14 +58,31 @@
   background-color: transparent;
   color: white;
   font-weight: 200;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 1rem;
-  padding: 11px;
+  padding: 0px 11px;
   outline: none;
-  width: 8rem;
+  width: 6rem;
   margin: 1rem auto;
   text-align: center;
+  font-family: 'Catamaran', sans-serif;
 }
+
+.addExpense {
+  text-align: center;
+  margin: auto;
+  font-size: 1.7rem;
+  font-weight: 200;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 1rem;
+  outline: none;
+  padding: 0px 10px;
+  width: fit-content;
+  cursor: pointer;
+}
+
 
 @keyframes fadeIn {
   0% {
@@ -74,4 +91,10 @@
   100% {
     opacity: 1;
   }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
