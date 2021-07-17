@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  background-color: rgb(40, 51, 68);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-image: url('./ios-linen.jpg');
+  color: white;
+  font-family: 'Catamaran', sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-top: 2rem;
+}
