@@ -68,6 +68,35 @@
   font-family: 'Catamaran', sans-serif;
 }
 
+.editBudgetFormWrapper {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  width: 23rem;
+  margin: auto;
+}
+
+.editBudgetFormWrapper label {
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+.editBudgetFormWrapper input {
+  font-size: 2rem;
+  background-color: transparent;
+  color: white;
+  font-weight: 200;
+  border: 1px solid white;
+  border-radius: 1rem;
+  padding: 0px 11px;
+  outline: none;
+  width: 6rem;
+  margin: 1rem auto;
+  text-align: center;
+  font-family: 'Catamaran', sans-serif;
+}
+
 .buttonUI {
   text-align: center;
   margin: 2rem auto;
