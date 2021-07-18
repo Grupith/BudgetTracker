@@ -9,7 +9,10 @@ const EditBudget = ({ setEditBudget, setBudgetAmount, setItems }) => {
             }}>
                 <input name='editbudget' type='number' onChange={(e) => setBudgetAmount(e.target.value)}></input>
                 <p>Warning: This will reset your expenses.</p>
-                <button type='submit'>Submit</button>
+                <div className='cancelSubmitWrapper'>
+                    <button type='submit'>Submit</button>
+                    <p onClick={() => setEditBudget(false)}>Cancel</p>
+                </div>
             </form>
         </div>
     )

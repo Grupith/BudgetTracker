@@ -4,6 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Catamaran', sans-serif;
 }
 
 .App {
@@ -187,6 +188,25 @@
   margin: 5px;
 }
 
+.cancelSubmitWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13rem;
+  margin: auto;
+}
+
+.cancelSubmitWrapper button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.cancelSubmitWrapper p {
+  cursor: pointer;
+}
+
+.cancelSubmitWrapper p:hover {
+  color: rgb(221, 221, 221);
+}
 
 
 @media only screen and (max-width: 600px) {
