@@ -11,7 +11,7 @@ const AddExpense = ({ setAddExpense, expense, setExpense, price, setPrice, items
             price: price,
         }
         setItems([...items].concat(newExpense));
-        setBudgetAmount(budgetAmount - newExpense.price)
+        setBudgetAmount(budgetAmount - newExpense)
         setAddExpense(false);
     }
 
@@ -21,6 +21,7 @@ const AddExpense = ({ setAddExpense, expense, setExpense, price, setPrice, items
             <input type='text' placeholder='Add Expense' onChange={(e) => setExpense(e.target.value)} />
             <input type='number' placeholder='Price' className='priceWrapper' onChange={(e) => setPrice(e.target.value)} />
             <button type='submit'>+</button>
+            <p onClick={() => setAddExpense(false)}>Cancel</p>
         </form>
     )
 }

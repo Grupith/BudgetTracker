@@ -144,6 +144,7 @@
 .addExpenseWrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .addExpenseWrapper input {
@@ -165,6 +166,17 @@
   outline: none;
   padding: 0px 20px;
   cursor: pointer;
+}
+
+.addExpenseWrapper p {
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.582);
+  cursor: pointer;
+}
+
+.addExpenseWrapper p:hover {
+  color:rgb(151, 151, 151);
 }
 
 .priceWrapper {
