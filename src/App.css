@@ -166,7 +166,26 @@
   width: 8rem;
 }
 
+.itemsContainer {
+  text-align: center;
+  width: 20rem;
+  margin: auto;
+}
 
+.itemWrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.7rem;
+  font-weight: 200;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .addExpenseWrapper input {
+    font-size: 1.1rem;
+  }
+}
 
 @keyframes fadeIn {
   0% {

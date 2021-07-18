@@ -7,7 +7,7 @@ const AddBudget = ({ setBudgetAmount, setSubmit }) => {
                 e.preventDefault();
                 setSubmit(true);
             }}>
-                <label for='addbudget'>Set your budget amount</label>
+                <label htmlFor='addbudget'>Set your budget amount</label>
                 <input type='number' name='addbudget' onChange={(e) => setBudgetAmount(e.target.value)} />
             </form>
         </div>

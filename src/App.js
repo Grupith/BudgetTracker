@@ -12,12 +12,13 @@ function App() {
   const [editBudget, setEditBudget] = useState(false);
   const [addExpense, setAddExpense] = useState(false);
 
-  // Show edit budget component when Edit Budget button is clicked
+  const [expense, setExpense] = useState('');
+  const [price, setPrice] = useState(0);
+  const [items, setItems] = useState([]);
+
   const showEditBudget = (e) => {
     setEditBudget(true);
   }
-
-  //TODO: Change Editbutton to a input the same design as Budget amount, will have to move budgetamount into its own component
 
   return (
     <div className="App">
@@ -31,7 +32,23 @@ function App() {
           <div className='buttonUI' onClick={showEditBudget}>Edit Budget</div>
         </div>
       )}
-      {addExpense && <AddExpense />}
+      {addExpense && <AddExpense
+        setAddExpense={setAddExpense}
+        expense={expense}
+        setExpense={setExpense}
+        price={price}
+        setPrice={setPrice}
+        items={items}
+        setItems={setItems} />}
+
+      {/* Displays list of expenses and prices */}
+      {items.map((item) => <div key={item.id} className='itemsContainer'>
+        <div className='itemWrapper'>
+          <p>{item.expense}</p>
+          <p>${item.price}</p>
+        </div>
+      </div>)}
+
     </div>
   );
 }
