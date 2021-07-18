@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddExpense = ({ setAddExpense, expense, setExpense, price, setPrice, items, setItems }) => {
+const AddExpense = ({ setAddExpense, expense, setExpense, price, setPrice, items, setItems, budgetAmount, setBudgetAmount }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -11,6 +11,7 @@ const AddExpense = ({ setAddExpense, expense, setExpense, price, setPrice, items
             price: price,
         }
         setItems([...items].concat(newExpense));
+        setBudgetAmount(budgetAmount - newExpense.price)
         setAddExpense(false);
     }
 

@@ -109,6 +109,10 @@
   margin-bottom: 1rem;
 }
 
+.editBudgetFormWrapper p {
+  font-size: 1.2rem;
+}
+
 .buttonUI {
   text-align: center;
   margin: 2rem auto;
@@ -177,6 +181,10 @@
   justify-content: space-between;
   font-size: 1.7rem;
   font-weight: 200;
+}
+
+.itemWrapper p {
+  margin: 5px;
 }
 
 

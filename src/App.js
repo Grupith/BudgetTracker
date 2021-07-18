@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {editBudget ? <EditBudget setEditBudget={setEditBudget} setBudgetAmount={setBudgetAmount} /> : <Budget budgetAmount={budgetAmount} />}
+      {editBudget ? <EditBudget setEditBudget={setEditBudget} setBudgetAmount={setBudgetAmount} setItems={setItems} /> : <Budget budgetAmount={budgetAmount} />}
       {!submitted && <AddBudget setBudgetAmount={setBudgetAmount} setSubmit={setSubmit} />}
 
       {submitted && (
@@ -39,7 +39,9 @@ function App() {
         price={price}
         setPrice={setPrice}
         items={items}
-        setItems={setItems} />}
+        setItems={setItems}
+        budgetAmount={budgetAmount}
+        setBudgetAmount={setBudgetAmount} />}
 
       {/* Displays list of expenses and prices */}
       {items.map((item) => <div key={item.id} className='itemsContainer'>
