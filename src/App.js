@@ -12,13 +12,17 @@ function App() {
     setEditBudget(true);
   }
 
+  //TODO: Move editBudget UI into its own component so it doesnt mess with the styling of the original form budget amount
+
   return (
     <div className="App">
       <Header budgetAmount={budgetAmount} />
       {!submitted && <AddBudget setBudgetAmount={setBudgetAmount} setSubmit={setSubmit} setEditBudget={setEditBudget} />}
+      <div className='buttonWrapper'>
+        {submitted && <div className='buttonUI'>Add Expense</div>}
+        {submitted && <div className='buttonUI' onClick={showEditBudget}>Edit Budget</div>}
+      </div>
       {editBudget && <AddBudget setBudgetAmount={setBudgetAmount} setSubmit={setSubmit} setEditBudget={setEditBudget} />}
-      {submitted && <div className='buttonUI'>Add Expense</div>}
-      {submitted && <div className='buttonUI' onClick={showEditBudget}>Edit Budget</div>}
     </div>
   );
 }

@@ -87,6 +87,14 @@
   background-color: rgba(255, 255, 255, 0.15);
 }
 
+.buttonWrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 21rem;
+  height: fit-content;
+  margin: auto;
+}
+
 
 @keyframes fadeIn {
   0% {
