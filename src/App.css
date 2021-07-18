@@ -136,6 +136,37 @@
   margin: auto;
 }
 
+.addExpenseWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.addExpenseWrapper input {
+  color: white;
+  background-color: transparent;
+  font-size: 1.7rem;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.582);
+  margin: 12px;
+}
+
+.addExpenseWrapper button {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 400;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.582);
+  border: none;
+  outline: none;
+  padding: 0px 20px;
+  cursor: pointer;
+}
+
+.priceWrapper {
+  width: 8rem;
+}
+
+
 
 @keyframes fadeIn {
   0% {
