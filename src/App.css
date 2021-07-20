@@ -7,11 +7,16 @@
   font-family: "Catamaran", sans-serif;
 }
 
+html {
+}
+
 .App {
   background-color: rgb(40, 51, 68);
   top: 0;
   width: 100%;
   height: 100%;
+  position: fixed;
+  overflow-y: scroll;
   background-size: cover;
   background-image: url("./ios-linen.jpg");
   color: white;
@@ -227,6 +232,8 @@
 
 .cancelSubmitWrapper p {
   cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 200;
 }
 
 .cancelSubmitWrapper p:hover {
