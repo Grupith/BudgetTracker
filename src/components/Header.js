@@ -1,5 +1,5 @@
 
-const Header = ({ setBudgetAmount, setSubmit, setItems}) => {
+export const Header = ({ setBudgetAmount, setSubmit, setItems}) => {
     return (
         <div>
             <button onClick={() => {
@@ -12,5 +12,3 @@ const Header = ({ setBudgetAmount, setSubmit, setItems}) => {
         </div>
     )
 }
-
-export default Header;

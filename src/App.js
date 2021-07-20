@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
-import Budget from './components/Budget';
-import AddBudget from './components/AddBudget'
-import EditBudget from './components/EditBudget';
-import AddExpense from './components/AddExpense';
+import React, {useState, useEffect, useCallback} from 'react';
+import {
+  Header,
+  Budget,
+  AddBudget,
+  EditBudget,
+  AddExpense
+} from './components';
 import './App.css';
 
 function App() {
@@ -20,42 +22,44 @@ function App() {
     setEditBudget(true);
   }
 
+  const setBudgetAmountAndCache = useCallback((budgetAmount) => {
+    const tempBudgetAmount = JSON.stringify(budgetAmount);
+    localStorage.setItem('currentBudgetAmount', tempBudgetAmount);
+    setBudgetAmount(budgetAmount);
+  }, [])
+
+  const setItemsAndCache = useCallback((items) => {
+    const tempItems = JSON.stringify(items);
+    localStorage.setItem('Items', tempItems);
+    setItems(items);
+  }, [])
+
   useEffect(() => {
     const tempBudgetAmount = localStorage.getItem('currentBudgetAmount');
     const loadedBudgetAmount = JSON.parse(tempBudgetAmount);
 
-    loadedBudgetAmount && setBudgetAmount(loadedBudgetAmount);
-  }, [])
-
-  useEffect(() => {
-    const tempBudgetAmount = JSON.stringify(budgetAmount);
-    localStorage.setItem('currentBudgetAmount', tempBudgetAmount);
-  }, [budgetAmount])
+    loadedBudgetAmount && setBudgetAmountAndCache(loadedBudgetAmount);
+  }, [setBudgetAmountAndCache])
 
   useEffect(() => {
     const tempItems = localStorage.getItem('Items');
     const loadedItems = JSON.parse(tempItems);
 
-    loadedItems && setItems(loadedItems);
-  }, [])
+    loadedItems && setItemsAndCache(loadedItems);
+  }, [setItemsAndCache])
 
-  useEffect(() => {
-    const tempItems = JSON.stringify(items);
-    localStorage.setItem('Items', tempItems);
-  }, [items])
-
-  useEffect(() => {
-    const tempSubmitted = JSON.stringify(submitted);
+  const setSubmittedAndCache = useCallback((val) => {
+    const tempSubmitted = JSON.stringify(val);
     localStorage.setItem('submitted', tempSubmitted);
-    // setSubmit(true);
-  }, [submitted])
+    setSubmit(val);
+  }, []);
 
   useEffect(() => {
     const getSubmitted = localStorage.getItem('submitted');
     const submission = JSON.parse(getSubmitted);
-    submission && setSubmit(submission);
-    console.log('Get submitted data', submission);
-  }, [])
+    console.log({submission})
+    submission && setSubmittedAndCache(submission);
+  }, [setSubmittedAndCache])
 
 
 
@@ -65,8 +69,8 @@ function App() {
   return (
     <div className="App">
       <Header setSubmit={setSubmit} setBudgetAmount={setBudgetAmount} setItems={setItems} />
-      {editBudget ? <EditBudget setEditBudget={setEditBudget} setBudgetAmount={setBudgetAmount} setItems={setItems} /> : <Budget budgetAmount={budgetAmount} />}
-      {!submitted && <AddBudget setBudgetAmount={setBudgetAmount} setSubmit={setSubmit} />}
+      {editBudget ? <EditBudget setEditBudget={setEditBudget} setBudgetAmount={setBudgetAmountAndCache} setItems={setItemsAndCache} /> : <Budget budgetAmount={budgetAmount} />}
+      {!submitted && <AddBudget setBudgetAmount={setBudgetAmountAndCache} setSubmit={setSubmittedAndCache} />}
 
       {submitted && (
         <div className='buttonContainer'>
@@ -83,9 +87,9 @@ function App() {
         price={price}
         setPrice={setPrice}
         items={items}
-        setItems={setItems}
+        setItems={setItemsAndCache}
         budgetAmount={budgetAmount}
-        setBudgetAmount={setBudgetAmount} />}
+        setBudgetAmount={setBudgetAmountAndCache} />}
 
       {/* Displays list of expenses and prices */}
       {items.map((item) => <div key={item.id} className='itemsContainer'>

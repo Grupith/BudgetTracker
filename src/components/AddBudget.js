@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddBudget = ({ setBudgetAmount, setSubmit }) => {
+export const AddBudget = ({ setBudgetAmount, setSubmit }) => {
     return (
         <div className='formWrapper'>
             <form onSubmit={(e) => {
@@ -14,4 +14,3 @@ const AddBudget = ({ setBudgetAmount, setSubmit }) => {
     )
 }
 
-export default AddBudget;
