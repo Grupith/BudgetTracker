@@ -18,10 +18,6 @@ function App() {
   const [price, setPrice] = useState(0);
   const [items, setItems] = useState([]);
 
-  const showEditBudget = (e) => {
-    setEditBudget(true);
-  }
-
   const setBudgetAmountAndCache = useCallback((budgetAmount) => {
     const tempBudgetAmount = JSON.stringify(budgetAmount);
     localStorage.setItem('currentBudgetAmount', tempBudgetAmount);
@@ -64,8 +60,7 @@ function App() {
 
   //TODO: Update localStorage when you edit your budgetAmount
   //TODO: Fix styling on mobile
-  //TODO: Make cancel button on AddExpense smaller
-  //TODO: Add submit button to home page
+  //TODO: Change styling on reset button
 
   return (
     <div className="App">
@@ -77,7 +72,7 @@ function App() {
         <div className='buttonContainer'>
           <div className='buttonWrapper'>
             <div className='buttonUI' onClick={() => setAddExpense(true)}>Add Expense</div>
-            <div className='buttonUI' onClick={showEditBudget}>Edit Budget</div>
+            <div className='buttonUI' onClick={() => setEditBudget(true)}>Edit Budget</div>
           </div>
         </div>
       )}

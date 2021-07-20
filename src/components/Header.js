@@ -2,7 +2,7 @@
 export const Header = ({ setBudgetAmount, setSubmit, setItems}) => {
     return (
         <div>
-            <button onClick={() => {
+            <button className='resetButton' onClick={() => {
                 setSubmit(false);
                 setBudgetAmount(0);
                 setItems([]);
