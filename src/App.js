@@ -62,9 +62,10 @@ function App() {
   }, [setSubmittedAndCache])
 
 
-
+  //TODO: Update localStorage when you edit your budgetAmount
   //TODO: Fix styling on mobile
-  //TODO: add loggedIn, setLoggedIn, if logged in is true from localstorage, display data, if false, display AddBudget
+  //TODO: Make cancel button on AddExpense smaller
+  //TODO: Add submit button to home page
 
   return (
     <div className="App">
