@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Budget from './components/Budget';
 import AddBudget from './components/AddBudget'
@@ -20,16 +20,60 @@ function App() {
     setEditBudget(true);
   }
 
+  useEffect(() => {
+    const tempBudgetAmount = localStorage.getItem('currentBudgetAmount');
+    const loadedBudgetAmount = JSON.parse(tempBudgetAmount);
+
+    loadedBudgetAmount && setBudgetAmount(loadedBudgetAmount);
+  }, [])
+
+  useEffect(() => {
+    const tempBudgetAmount = JSON.stringify(budgetAmount);
+    localStorage.setItem('currentBudgetAmount', tempBudgetAmount);
+  }, [budgetAmount])
+
+  useEffect(() => {
+    const tempItems = localStorage.getItem('Items');
+    const loadedItems = JSON.parse(tempItems);
+
+    loadedItems && setItems(loadedItems);
+  }, [])
+
+  useEffect(() => {
+    const tempItems = JSON.stringify(items);
+    localStorage.setItem('Items', tempItems);
+  }, [items])
+
+  useEffect(() => {
+    const tempSubmitted = JSON.stringify(submitted);
+    localStorage.setItem('submitted', tempSubmitted);
+    // setSubmit(true);
+  }, [submitted])
+
+  useEffect(() => {
+    const getSubmitted = localStorage.getItem('submitted');
+    const submission = JSON.parse(getSubmitted);
+    submission && setSubmit(submission);
+    console.log('Get submitted data', submission);
+  }, [])
+
+
+
+  //TODO: Fix styling on mobile
+  //TODO: add loggedIn, setLoggedIn, if logged in is true from localstorage, display data, if false, display AddBudget
+
   return (
     <div className="App">
-      <Header />
+      <Header setSubmit={setSubmit} setBudgetAmount={setBudgetAmount} setItems={setItems} />
       {editBudget ? <EditBudget setEditBudget={setEditBudget} setBudgetAmount={setBudgetAmount} setItems={setItems} /> : <Budget budgetAmount={budgetAmount} />}
       {!submitted && <AddBudget setBudgetAmount={setBudgetAmount} setSubmit={setSubmit} />}
 
       {submitted && (
-        <div className='buttonWrapper'>
-          <div className='buttonUI' onClick={() => setAddExpense(true)}>Add Expense</div>
-          <div className='buttonUI' onClick={showEditBudget}>Edit Budget</div>
+        <div className='buttonContainer'>
+          <div className='buttonWrapper'>
+            <div className='buttonUI' onClick={() => setAddExpense(true)}>Add Expense</div>
+            <div className='buttonUI' onClick={showEditBudget}>Edit Budget</div>
+          </div>
         </div>
       )}
       {addExpense && <AddExpense

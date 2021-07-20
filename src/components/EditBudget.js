@@ -6,8 +6,9 @@ const EditBudget = ({ setEditBudget, setBudgetAmount, setItems }) => {
             <form className='editBudgetFormWrapper' onSubmit={() => {
                 setEditBudget(false)
                 setItems([]);
+                localStorage.clear();
             }}>
-                <input name='editbudget' type='number' onChange={(e) => setBudgetAmount(e.target.value)}></input>
+                <input name='editbudget' type='number' required onChange={(e) => setBudgetAmount(e.target.value)}></input>
                 <p>Warning: This will reset your expenses.</p>
                 <div className='cancelSubmitWrapper'>
                     <button type='submit'>Submit</button>
