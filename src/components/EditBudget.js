@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EditBudget = ({ setEditBudget, setBudgetAmount, setItems }) => {
+export const EditBudget = ({ setEditBudget, setBudgetAmount, setItems }) => {
     return (
         <div>
             <form className='editBudgetFormWrapper' onSubmit={() => {
@@ -18,5 +18,3 @@ const EditBudget = ({ setEditBudget, setBudgetAmount, setItems }) => {
         </div>
     )
 }
-
-export default EditBudget;

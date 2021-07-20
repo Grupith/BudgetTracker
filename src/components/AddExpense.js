@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddExpense = ({ setAddExpense, expense, setExpense, price, setPrice, items, setItems, budgetAmount, setBudgetAmount }) => {
+export const AddExpense = ({ setAddExpense, expense, setExpense, price, setPrice, items, setItems, budgetAmount, setBudgetAmount }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,5 +25,3 @@ const AddExpense = ({ setAddExpense, expense, setExpense, price, setPrice, items
         </form>
     )
 }
-
-export default AddExpense;

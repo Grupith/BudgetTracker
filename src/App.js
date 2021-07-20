@@ -1,9 +1,11 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import Header from './components/Header';
-import Budget from './components/Budget';
-import AddBudget from './components/AddBudget'
-import EditBudget from './components/EditBudget';
-import AddExpense from './components/AddExpense';
+import {
+  Header,
+  Budget,
+  AddBudget,
+  EditBudget,
+  AddExpense
+} from './components';
 import './App.css';
 
 function App() {
@@ -66,7 +68,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header setSubmit={setSubmittedAndCache} setBudgetAmount={setBudgetAmountAndCache} setItems={setItemsAndCache} />
+      <Header setSubmit={setSubmit} setBudgetAmount={setBudgetAmount} setItems={setItems} />
       {editBudget ? <EditBudget setEditBudget={setEditBudget} setBudgetAmount={setBudgetAmountAndCache} setItems={setItemsAndCache} /> : <Budget budgetAmount={budgetAmount} />}
       {!submitted && <AddBudget setBudgetAmount={setBudgetAmountAndCache} setSubmit={setSubmittedAndCache} />}
 
