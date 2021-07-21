@@ -84,7 +84,8 @@ function App() {
       {submitted && <Name name={name}/>}
       {submitted && <TodaysDate />}
 
-      <Header setSubmit={setSubmit} setBudgetAmount={setBudgetAmount} setItems={setItems} />
+      {!submitted && <Header setSubmit={setSubmit} setBudgetAmount={setBudgetAmount} setItems={setItems} />}
+      
       {editBudget ? <EditBudget setEditBudget={setEditBudget} setBudgetAmount={setBudgetAmountAndCache} setItems={setItemsAndCache} /> : <Budget budgetAmount={budgetAmount} />}
       {!submitted && <AddBudget setBudgetAmount={setBudgetAmountAndCache} setSubmit={setSubmittedAndCache} setName={setNameAndCache} />}
 
