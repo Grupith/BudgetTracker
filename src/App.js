@@ -4,7 +4,9 @@ import {
   Budget,
   AddBudget,
   EditBudget,
-  AddExpense
+  AddExpense,
+  Name,
+  Reset
 } from './components';
 import './App.css';
 
@@ -13,6 +15,7 @@ function App() {
   const [submitted, setSubmit] = useState(false);
   const [editBudget, setEditBudget] = useState(false);
   const [addExpense, setAddExpense] = useState(false);
+  const [name, setName] = useState('');
 
   const [expense, setExpense] = useState('');
   const [price, setPrice] = useState(0);
@@ -24,19 +27,19 @@ function App() {
     setBudgetAmount(budgetAmount);
   }, [])
 
+  useEffect(() => {
+    const tempBudgetAmount = localStorage.getItem('currentBudgetAmount');
+    const loadedBudgetAmount = JSON.parse(tempBudgetAmount);
+    
+    loadedBudgetAmount && setBudgetAmountAndCache(loadedBudgetAmount);
+  }, [setBudgetAmountAndCache])
+
   const setItemsAndCache = useCallback((items) => {
     const tempItems = JSON.stringify(items);
     localStorage.setItem('Items', tempItems);
     setItems(items);
   }, [])
-
-  useEffect(() => {
-    const tempBudgetAmount = localStorage.getItem('currentBudgetAmount');
-    const loadedBudgetAmount = JSON.parse(tempBudgetAmount);
-
-    loadedBudgetAmount && setBudgetAmountAndCache(loadedBudgetAmount);
-  }, [setBudgetAmountAndCache])
-
+  
   useEffect(() => {
     const tempItems = localStorage.getItem('Items');
     const loadedItems = JSON.parse(tempItems);
@@ -57,17 +60,31 @@ function App() {
     submission && setSubmittedAndCache(submission);
   }, [setSubmittedAndCache])
 
+  const setNameAndCache = useCallback((name) => {
+    const tempName = JSON.stringify(name);
+    localStorage.setItem('name', tempName);
+    setName(name);
+  }, [])
 
-  //TODO: Update localStorage when you edit your budgetAmount
-  //TODO: Make AddBudget Reset budget the same styling as other buttons (.buttionUI)
-  //TODO: Fix mobile scrolling issue with background if list goes off page
-  //TODO: Fix mobile AddExpense styling
+  useEffect(() => {
+    const getName = localStorage.getItem('name');
+    const tempName = JSON.parse(getName);
+    tempName && setName(tempName);
+  }, [setNameAndCache])
+
+
+  //TODO: Fix mobile scrolling issue when tons of items are loaded and safari mobile doesnt allow scrolling on first page load unless buttons are pressed
 
   return (
     <div className="App">
+      <Reset setSubmit={setSubmit} setBudgetAmount={setBudgetAmount} setItems={setItems}/>
+
+      {submitted && <Name name={name}/>}
+
       <Header setSubmit={setSubmit} setBudgetAmount={setBudgetAmount} setItems={setItems} />
       {editBudget ? <EditBudget setEditBudget={setEditBudget} setBudgetAmount={setBudgetAmountAndCache} setItems={setItemsAndCache} /> : <Budget budgetAmount={budgetAmount} />}
-      {!submitted && <AddBudget setBudgetAmount={setBudgetAmountAndCache} setSubmit={setSubmittedAndCache} />}
+      {!submitted && <AddBudget setBudgetAmount={setBudgetAmountAndCache} setSubmit={setSubmittedAndCache} setName={setNameAndCache} />}
+
 
       {submitted && (
         <div className='buttonContainer'>
