@@ -28,6 +28,25 @@
   animation: fadeIn 1s;
 }
 
+.todaysDate {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+.actualDate {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-left: 8px;
+  font-weight: 400;
+}
+
+.todaysDateWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
 .budgetAmount {
   text-align: center;
   font-size: 2.1rem;

@@ -18,7 +18,7 @@ export const AddExpense = ({ setAddExpense, expense, setExpense, price, setPrice
 
     return (
         <form className='addExpenseWrapper' onSubmit={handleSubmit}>
-            <input type='text' required autoFocus='true' placeholder='Add Item...' onChange={(e) => setExpense(e.target.value)} />
+            <input type='text' required autoFocus={true} placeholder='Add Item...' onChange={(e) => setExpense(e.target.value)} />
             <input type='number' step='.01' required placeholder='Price...' className='priceWrapper' onChange={(e) => setPrice(e.target.value)} />
             <button type='submit'>+</button>
             <p onClick={() => setAddExpense(false)}>Cancel</p>

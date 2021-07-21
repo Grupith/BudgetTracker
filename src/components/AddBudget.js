@@ -9,7 +9,7 @@ export const AddBudget = ({ setBudgetAmount, setSubmit, setName }) => {
             }}>
                 <label htmlFor='addName'>What is your name?</label>
                  <div className='addNameWrapper'>
-                    <input type='text' autoFocus='true' autoComplete='off' name='addName' required onChange={(e) => setName(e.target.value)} />
+                    <input type='text' autoFocus={true} autoComplete='off' name='addName' required onChange={(e) => setName(e.target.value)} />
                 </div>
                 <div className='addBudgetFormWrapper'>
                     <label htmlFor='addbudget'>Set your budget amount</label>

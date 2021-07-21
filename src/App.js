@@ -6,7 +6,8 @@ import {
   EditBudget,
   AddExpense,
   Name,
-  Reset
+  Reset,
+  TodaysDate
 } from './components';
 import './App.css';
 
@@ -74,12 +75,14 @@ function App() {
 
 
   //TODO: Fix mobile scrolling issue when tons of items are loaded and safari mobile doesnt allow scrolling on first page load unless buttons are pressed
+  //TODO: Add TodaysDate Component, display when rendered and write date logic to display
 
   return (
     <div className="App">
       <Reset setSubmit={setSubmit} setBudgetAmount={setBudgetAmount} setItems={setItems}/>
 
       {submitted && <Name name={name}/>}
+      {submitted && <TodaysDate />}
 
       <Header setSubmit={setSubmit} setBudgetAmount={setBudgetAmount} setItems={setItems} />
       {editBudget ? <EditBudget setEditBudget={setEditBudget} setBudgetAmount={setBudgetAmountAndCache} setItems={setItemsAndCache} /> : <Budget budgetAmount={budgetAmount} />}
