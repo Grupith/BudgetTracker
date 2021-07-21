@@ -7,9 +7,6 @@
   font-family: "Catamaran", sans-serif;
 }
 
-html {
-}
-
 .App {
   background-color: rgb(40, 51, 68);
   top: 0;
@@ -64,10 +61,10 @@ html {
   font-weight: 200;
   border: 1px solid white;
   border-radius: 1rem;
-  padding: 0px 11px;
+  padding: 0px 10px;
   outline: none;
   width: 6rem;
-  margin: 1rem auto;
+  margin: 6px;
   text-align: center;
   font-family: "Catamaran", sans-serif;
 }
@@ -78,13 +75,20 @@ html {
   font-size: 1.3rem;
   font-weight: 200;
   margin: 8px;
-  padding: 5px;
-  border: none;
+  padding: 9px 15px;
+  border: 1px solid white;
+  border-radius: 1rem;
   cursor: pointer;
 }
 
 .formWrapper button:hover {
-  color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.addBudgetWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .editBudgetFormWrapper {
@@ -256,12 +260,6 @@ html {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-@media only screen and (max-width: 600px) {
-  .addExpenseWrapper input {
-    font-size: 1.1rem;
-  }
-}
-
 .buttonContainer {
   text-align: center;
 }
@@ -272,6 +270,23 @@ html {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .addExpenseWrapper input {
+    font-size: 1.1rem;
+  }
+
+  .addExpenseWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .addExpenseWrapper input {
+    border: 1px solid white;
+    border-radius: 1rem;
+    padding: 8px;
   }
 }
 

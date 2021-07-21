@@ -61,6 +61,7 @@ function App() {
   //TODO: Update localStorage when you edit your budgetAmount
   //TODO: Make AddBudget Reset budget the same styling as other buttons (.buttionUI)
   //TODO: Fix mobile scrolling issue with background if list goes off page
+  //TODO: Fix mobile AddExpense styling
 
   return (
     <div className="App">

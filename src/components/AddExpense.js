@@ -18,8 +18,8 @@ export const AddExpense = ({ setAddExpense, expense, setExpense, price, setPrice
 
     return (
         <form className='addExpenseWrapper' onSubmit={handleSubmit}>
-            <input type='text' required placeholder='Add Expense' onChange={(e) => setExpense(e.target.value)} />
-            <input type='number' required placeholder='Price' className='priceWrapper' onChange={(e) => setPrice(e.target.value)} />
+            <input type='text' required placeholder='Add Item...' onChange={(e) => setExpense(e.target.value)} />
+            <input type='number' required placeholder='Price...' className='priceWrapper' onChange={(e) => setPrice(e.target.value)} />
             <button type='submit'>+</button>
             <p onClick={() => setAddExpense(false)}>Cancel</p>
         </form>

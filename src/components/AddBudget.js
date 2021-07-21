@@ -8,8 +8,10 @@ export const AddBudget = ({ setBudgetAmount, setSubmit }) => {
                 setSubmit(true);
             }}>
                 <label htmlFor='addbudget'>Set your budget amount</label>
-                <input type='number' name='addbudget' required onChange={(e) => setBudgetAmount(e.target.value)} />
-                <button type='submit'>Submit</button>
+                 <div className='addBudgetWrapper'>
+                    <input type='number' name='addbudget' required onChange={(e) => setBudgetAmount(e.target.value)} />
+                    <button type='submit'>Submit</button>
+                </div>
             </form>
         </div>
     )
