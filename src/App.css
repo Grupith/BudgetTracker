@@ -229,9 +229,17 @@
 }
 
 .itemsContainer {
-  text-align: center;
   width: 20rem;
-  margin: auto;
+  margin: 1rem auto;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 1rem;
+}
+
+.itemsContainer span {
+  font-size: 1.1rem;
+  font-weight: 200;
+  margin-left: 5px;
 }
 
 .itemWrapper {

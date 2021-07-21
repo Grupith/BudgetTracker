@@ -22,6 +22,7 @@ function App() {
   const [price, setPrice] = useState(0);
   const [items, setItems] = useState([]);
 
+
   const setBudgetAmountAndCache = useCallback((budgetAmount) => {
     const tempBudgetAmount = JSON.stringify(budgetAmount);
     localStorage.setItem('currentBudgetAmount', tempBudgetAmount);
@@ -75,7 +76,8 @@ function App() {
 
 
   //TODO: Fix mobile scrolling issue when tons of items are loaded and safari mobile doesnt allow scrolling on first page load unless buttons are pressed
-  //TODO: Add TodaysDate Component, display when rendered and write date logic to display
+  //TODO: Save AddExpense date to localStroage
+  //TODO:(git) Border around items and date of item are not commited yet until i figure out localStorage
 
   return (
     <div className="App">
@@ -115,6 +117,7 @@ function App() {
           <p>{item.expense}</p>
           <p>${item.price}</p>
         </div>
+        <span>{item.timeItemCreated}</span>
       </div>)}
 
     </div>

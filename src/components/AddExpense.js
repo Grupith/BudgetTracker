@@ -1,14 +1,17 @@
 import React from 'react';
+import { DateTime} from 'luxon';
 
 export const AddExpense = ({ setAddExpense, expense, setExpense, price, setPrice, items, setItems, budgetAmount, setBudgetAmount }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
+
         const newExpense = {
             id: new Date().getTime(),
             expense: expense,
             price: price,
+            timeItemCreated: DateTime.local().toLocaleString(DateTime.DATETIME_MED)
         }
         setItems([...items].concat(newExpense));
         setBudgetAmount(budgetAmount - newExpense.price)

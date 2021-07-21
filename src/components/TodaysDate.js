@@ -1,15 +1,14 @@
 import React from 'react';
-import moment from 'moment';
+import { DateTime } from 'luxon';
 
 export const TodaysDate = () => {
 
-    const todaysDate = moment().format('dddd MMMM Do YYYY');
-    console.log(todaysDate);
+   const dt = DateTime.local().toLocaleString(DateTime.DATE_HUGE);
 
     return (
         <div className='todaysDateWrapper'>
             <h5 className='todaysDate'>Today is...</h5>
-            <h5 className='actualDate'>{todaysDate}</h5>
+            <h5 className='actualDate'>{dt}</h5>
         </div>
     )
 }
