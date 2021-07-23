@@ -10,6 +10,7 @@ import {
   TodaysDate
 } from './components';
 import './App.css';
+import useMousetrap from 'react-hook-mousetrap';
 
 function App() {
   const [budgetAmount, setBudgetAmount] = useState(0);
@@ -73,6 +74,10 @@ function App() {
     const tempName = JSON.parse(getName);
     tempName && setName(tempName);
   }, [setNameAndCache])
+
+  useMousetrap('enter', () => {
+    setAddExpense(true);
+  });
 
 
   //TODO: Fix mobile scrolling issue when tons of items are loaded and safari mobile doesnt allow scrolling on first page load unless buttons are pressed

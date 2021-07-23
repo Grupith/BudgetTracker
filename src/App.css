@@ -342,6 +342,12 @@
     border-radius: 1rem;
     padding: 8px;
   }
+
+  .buttonUI {
+    font-size: 1.5rem;
+    padding: 4px 11px;
+    font-weight: 400;
+  }
 }
 
 input::-webkit-outer-spin-button,
