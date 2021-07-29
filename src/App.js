@@ -7,7 +7,8 @@ import {
   AddExpense,
   Name,
   Reset,
-  TodaysDate
+  TodaysDate,
+  InitialBudget
 } from './components';
 import './App.css';
 import useMousetrap from 'react-hook-mousetrap';
@@ -22,6 +23,20 @@ function App() {
   const [expense, setExpense] = useState('');
   const [price, setPrice] = useState(0);
   const [items, setItems] = useState([]);
+  const [initialBudget, setInitialBudget] = useState(0);
+
+
+  const setInitialBudgetandCache = useCallback((initialBudget) => {
+    const tempInitialBudget = JSON.stringify(initialBudget);
+    localStorage.setItem('currentInitialBudget', tempInitialBudget)
+    setInitialBudget(initialBudget);
+  }, [])
+
+  useEffect(() => {
+    const tempInitialBudget = localStorage.getItem('currentInitialBudget');
+    const loadedInitialBudget = JSON.parse(tempInitialBudget);
+    loadedInitialBudget && setInitialBudget(loadedInitialBudget);
+  }, [setInitialBudgetandCache])
 
 
   const setBudgetAmountAndCache = useCallback((budgetAmount) => {
@@ -59,7 +74,6 @@ function App() {
   useEffect(() => {
     const getSubmitted = localStorage.getItem('submitted');
     const submission = JSON.parse(getSubmitted);
-    console.log({submission})
     submission && setSubmittedAndCache(submission);
   }, [setSubmittedAndCache])
 
@@ -80,9 +94,6 @@ function App() {
   });
 
 
-  //TODO: Fix mobile scrolling issue when tons of items are loaded and safari mobile doesnt allow scrolling on first page load unless buttons are pressed
-  //TODO: Save AddExpense date to localStroage
-  //TODO:(git) Border around items and date of item are not commited yet until i figure out localStorage
 
   return (
     <div className="App">
@@ -90,11 +101,12 @@ function App() {
 
       {submitted && <Name name={name}/>}
       {submitted && <TodaysDate />}
+      {submitted && <InitialBudget  initialBudget={initialBudget} />}
 
       {!submitted && <Header setSubmit={setSubmit} setBudgetAmount={setBudgetAmount} setItems={setItems} />}
       
       {editBudget ? <EditBudget setEditBudget={setEditBudget} setBudgetAmount={setBudgetAmountAndCache} setItems={setItemsAndCache} /> : <Budget budgetAmount={budgetAmount} />}
-      {!submitted && <AddBudget setBudgetAmount={setBudgetAmountAndCache} setSubmit={setSubmittedAndCache} setName={setNameAndCache} />}
+      {!submitted && <AddBudget setBudgetAmount={setBudgetAmountAndCache} setSubmit={setSubmittedAndCache} setName={setNameAndCache} budgetAmount={budgetAmount} setInitialBudget={setInitialBudgetandCache} />}
 
 
       {submitted && (

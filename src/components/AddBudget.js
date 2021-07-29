@@ -1,11 +1,12 @@
 import React from 'react';
 
-export const AddBudget = ({ setBudgetAmount, setSubmit, setName }) => {
+export const AddBudget = ({ budgetAmount, setBudgetAmount, setSubmit, setName, setInitialBudget }) => {
     return (
         <div className='formWrapper'>
             <form onSubmit={(e) => {
                 e.preventDefault();
                 setSubmit(true);
+                setInitialBudget(budgetAmount);
             }}>
                 <label htmlFor='addName'>What is your name?</label>
                  <div className='addNameWrapper'>

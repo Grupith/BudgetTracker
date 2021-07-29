@@ -315,6 +315,17 @@
   background: transparent;
 }
 
+.initialBudget p {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 200;
+  margin-bottom: 12px;
+}
+
+.initialBudget span {
+  font-weight: 500;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
